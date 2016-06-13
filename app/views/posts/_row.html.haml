@@ -1,0 +1,21 @@
+.well
+  .row
+    .col-md-12
+      .label.label-default
+        = post.type_of
+      %h4
+        = post.title
+      %p
+        - if post.code?
+          %code
+            = post.content
+        - elsif post.link?
+          = post.content
+  .row
+    .col-md-12.text-right
+      %h5
+        = post.user.name if post.user
+        %small= "#{time_ago_in_words(post.created_at)} ago"
+  .row
+    .col-md-6
+      = link_to "Editar", edit_post_path(post)

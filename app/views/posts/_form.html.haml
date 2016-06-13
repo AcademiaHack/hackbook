@@ -1,0 +1,14 @@
+.row
+  .col-md-6.col-md-offset-3
+    = form_for @post do |f|
+      .form-group
+        = f.label :title
+        = f.text_field :title, class:'form-control'
+      .form-group
+        = f.label :type_of
+        = f.select :type_of, options_for_select(Post.type_ofs.keys), {}, {class:'form-control'}
+      .form-group
+        = f.label :content
+        = f.text_area :content, class:'form-control'
+      .form-group
+        = f.submit "Enviar", class:'form-control'
